@@ -1,14 +1,18 @@
-Клонировать репозиторий и перейти в него в командной строке:
+# 
+<h1 align="center"> Проект: сервис YaCut </h1>
 
-```
-git clone 
-```
+___
+<h4>Автор:</h4>
 
-```
-cd yacut
-```
+**Сластухин Александр** - студент Яндекс.Практикума Когорта 17+
+https://github.com/last-ui
 
-Cоздать и активировать виртуальное окружение:
+<h2>Краткое описание проекта</h2>
+Проект YaCut — это сервис укорачивания ссылок. Его назначение — ассоциировать длинную пользовательскую ссылку с короткой, которую предлагает сам пользователь или предоставляет сервис.
+
+<h2>Подготовка проекта к запуску</h2>
+
+- Установить и активировать виртуальное окружение
 
 ```
 python3 -m venv venv
@@ -26,7 +30,7 @@ python3 -m venv venv
     source venv/scripts/activate
     ```
 
-Установить зависимости из файла requirements.txt:
+- Установить зависимости из файла requirements.txt
 
 ```
 python3 -m pip install --upgrade pip
@@ -35,3 +39,15 @@ python3 -m pip install --upgrade pip
 ```
 pip install -r requirements.txt
 ```
+
+<h2>Запуск проекта</h2>
+
+```shell
+flask run
+```
+
+<h2>Используемые технологии</h2>
+
+- [Python 3.10](https://www.python.org/downloads/release/python-10/)
+- [Flask](https://flask.palletsprojects.com/en/2.3.x/)
+- [SQLAlchemy](https://docs.sqlalchemy.org/en/14/)

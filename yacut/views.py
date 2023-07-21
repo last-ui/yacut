@@ -25,7 +25,7 @@ def index_view():
         )
         db.session.add(url_map)
         db.session.commit()
-        flash(f'Ваша новая ссылка готова:')
+        flash('Ваша новая ссылка готова:')
         return render_template('urlmap.html',
                                form=form, url_map=url_map), HTTPStatus.OK
     return render_template('urlmap.html', form=form), HTTPStatus.OK
