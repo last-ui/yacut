@@ -2,6 +2,10 @@ import os
 
 DEFAULT_SHORT_URL_LENGTH = 6
 
+MIN_LENGTH = 1
+CUSTOM_ID_LENGTH = 16
+ORIGINAL_LINK_LENGTH = 256
+
 
 class Config(object):
     SQLALCHEMY_DATABASE_URI = os.getenv('DATABASE_URI', 'sqlite:///db.sqlite3')

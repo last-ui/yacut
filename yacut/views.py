@@ -1,6 +1,6 @@
 from http import HTTPStatus
 
-from flask import abort, flash, redirect, render_template
+from flask import flash, redirect, render_template
 
 from yacut import app, db
 from yacut.forms import URLMapForm
@@ -14,10 +14,11 @@ def index_view():
     if form.validate_on_submit():
         original_link = form.original_link.data
         custom_id = form.custom_id.data
-        if custom_id and URLMap.query.filter_by(short=custom_id).first():
+        if custom_id is not None and URLMap.query.filter_by(
+                short=custom_id).first():
             flash(f'Имя {custom_id} уже занято!')
             return render_template('urlmap.html', form=form), HTTPStatus.OK
-        if not custom_id:
+        if custom_id is None:
             custom_id = get_unique_short_id()
         url_map = URLMap(
             original=original_link,
@@ -33,7 +34,5 @@ def index_view():
 
 @app.route('/<string:short>')
 def redirect_url(short):
-    url_map = URLMap.query.filter_by(short=short).first()
-    if not url_map:
-        abort(HTTPStatus.NOT_FOUND)
+    url_map = URLMap.query.filter_by(short=short).first_or_404()
     return redirect(url_map.original)

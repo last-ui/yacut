@@ -1,4 +1,3 @@
-# 
 <h1 align="center"> Проект: сервис YaCut </h1>
 
 ___
@@ -44,6 +43,38 @@ pip install -r requirements.txt
 
 ```shell
 flask run
+```
+
+<h2>Примеры запросов</h2>
+
+- POST-запрос на создание новой короткой ссылки:
+```
+localhost:8000/api/id/
+Content-Type: application/json
+{
+  "url": "string",
+  "custom_id": "string"
+}
+```
+
+- Пример ответа от сервера:
+```
+{
+  "url": "string",
+  "short_link": "string"
+}
+```
+
+-  GET-запрос на получение оригинальной ссылки по указанному короткому идентификатору:
+```
+localhost:8000/api/id/1/
+```
+
+- Пример ответа от сервера:
+```
+{
+  "url": "string"  
+}
 ```
 
 <h2>Используемые технологии</h2>
